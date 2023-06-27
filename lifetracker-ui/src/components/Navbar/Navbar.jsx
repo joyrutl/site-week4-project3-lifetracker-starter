@@ -24,6 +24,12 @@ const Navbar = () => {
             <li>
             <Link  to={"/sleep"}>Sleep</Link>
             </li>
+            <li>
+            <Link  to={"/sleep"}>Sign in</Link>
+            </li>
+            <li>
+            <Link  to={"/sleep"}>Register</Link>
+            </li>
             </ul>
         </div>
 

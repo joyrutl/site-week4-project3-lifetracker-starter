@@ -8,6 +8,10 @@ const Home = () => {
         <div className='hero-title'>
           <h1>LifeTracker</h1>
           <p>Helping you take back control of your world.</p>
+          <span> 
+          <button> Sign In </button> 
+          <button> Register </button>
+          </span>
         </div>
         <div className='tiles'>
           <div className='card'>

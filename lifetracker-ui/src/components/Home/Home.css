@@ -36,10 +36,11 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   margin-top: 0px;
+  margin-bottom: 15px;
 }
 
 .hero-img .tiles{
-  margin-top: 15%;
+  margin-top: 12%;
 }
 
 .card {
@@ -64,6 +65,26 @@ html, body {
   width: 100%;    
   border-radius: 3px; 
   opacity: 1;
+}
+
+.hero-title button{
+  border: solid white 2px; 
+  border-radius: 5px;
+  background-color: transparent;
+  margin-top: 6px;
+  margin-right: 20px; 
+  padding-top: 10px; 
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white; 
+}
+
+.hero-title button:hover{
+  color: lightblue; 
+  background-color: white;
 }
 
 
