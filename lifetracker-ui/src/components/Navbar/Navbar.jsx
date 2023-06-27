@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className="content">
             <div className='logo'>
             <a className="chakra-link css-14rj303" href="/">
-            <img src="https://lifetracker.up.railway.app/assets/codepath-f1b3e41a.svg" alt="logo"/>
+              <img src="https://lifetracker.up.railway.app/assets/codepath-f1b3e41a.svg" alt="logo"/>
             </a>
             </div>
             <ul className='links'>
@@ -25,8 +25,14 @@ const Navbar = () => {
             <li>
             <Link  to={"/sleep"}>Sleep</Link>
             </li>
+            <li>
+            <Link  to={"/sleep"}>Sign in</Link>
+            </li>
+            <li>
+            <Link  to={"/sleep"}>Register</Link>
+            </li>
             </ul>
-            </div>
+        </div>
 
     </div>
   )
