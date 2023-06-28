@@ -7,6 +7,9 @@ const morgan = require("morgan")
 const { NotFoundError } = require("./utils/errors")
 const config = require("./config")
 const authRoutes = require("./routes/auth")
+const nutritionRoutes = require('./routes/nutrition')
+const exerciseRoutes = require('./routes/exercise')
+const sleepRoutes = require("./routes/sleep")
 
 const app = express()
 
@@ -21,6 +24,9 @@ app.use(morgan("tiny"))
 
 // routes
 app.use("/auth", authRoutes)
+app.use("/nutrition", nutritionRoutes)
+app.use("/exercise", exerciseRoutes)
+app.ua("/sleep", sleepRoutes)
 
 
 /** Handle 404 errors -- this matches everything */
