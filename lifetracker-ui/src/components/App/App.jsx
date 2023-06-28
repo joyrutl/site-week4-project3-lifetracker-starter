@@ -7,12 +7,9 @@ import SleepPage from "../SleepPage/SleepPage";
 import NutritionPage from "../NutritionPage/NutritionPage"
 import ExercisePage from "../ExercisePage/ExercisePage"
 import ActivityPage from '../ActivityPage/ActivityPage';
-<<<<<<< HEAD
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
-=======
 import Navbar from '../Navbar/Navbar';
->>>>>>> e9fd10966a0a7dbc9a1fdd0417d3d541c63748c3
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
