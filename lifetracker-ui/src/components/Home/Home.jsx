@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import "./Home.css"
 
 const Home = () => {
@@ -9,8 +10,8 @@ const Home = () => {
           <h1>LifeTracker</h1>
           <p>Helping you take back control of your world.</p>
           <span> 
-          <button> Sign In </button> 
-          <button> Register </button>
+           <Link  to={"/signUp"}> <button> Sign Up </button> </Link> 
+           <Link  to={"/login"}> <button> Log in </button></Link> 
           </span>
         </div>
         <div className='tiles'>

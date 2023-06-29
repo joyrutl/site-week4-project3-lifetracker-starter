@@ -1,16 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-<<<<<<< HEAD
+import "./SignUp.css"
+import {Link} from 'react-router-dom'
 import SignUpUser from '../Api/SignUpUser/SignUpUser'
 const SignUp = (props) => {
   const [signUpInfo, setSignUpInfo]  = useState({'firstname': null , 'lastname': null , 'username': null, 'email': null, 'password':null })
-=======
-import "./SignUp.css"
-import SignUpUser from '../SignUpUser/SignUpUser'
-
-const SignUp = (props) => {
-  const [signUpInfo, setSignUpInfo]  = useState({})
->>>>>>> 59722db68b911ddf29cce8b04e68c9efbf5dca31
   
   // const handleSignUp = ((e)=>{
   //   e.preventDefault()
@@ -27,43 +21,47 @@ const SignUp = (props) => {
     <div className='content-right'>
 
     <div className='form-div'>
+      <img src="https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur.png" alt="" />
       <h1>Create Account</h1>
 
       <form className='signup-form'>
       
       <span className='inline'>
-      <label> First Name: </label> 
-      <input type="text"/>
+      {/* <label> First Name: </label>  */}
+      <input type="text" placeholder='First Name'/>
 
-      <label> Last Name: </label>
-      <input type="text"/>
+      {/* <label> Last Name: </label> */}
+      <input type="text" placeholder='Last Name'/>
       
       </span>
       
       <br/>
       
-      <label> Email: </label> <br/>
-      <input type="email"/>
+      {/* <label> Email: </label> <br/> */}
+      <input type="email" placeholder='Email'/>
     
       <br />
       
-      <label> Username: </label> <br/>
-      <input type="text" />
+      {/* <label> Username: </label> <br/> */}
+      <input type="text" placeholder='Username'/>
 
       <br/>
 
-      <label> Password: </label> <br/>
-      <input type="password"/>
+      {/* <label> Password: </label> <br/> */}
+      <input type="password" placeholder='Password'/>
 
       <br/>
 
-      <label> Confirm Password: </label> <br/>
-      <input type="password" />
+      {/* <label> Confirm Password: </label> <br/> */}
+      <input type="password" placeholder='Confirm Password'/>
 
       <br/>
 
       <button type="submit">Create Account</button>
       </form>
+      <p className='prompt'>Already have an account?    
+      <Link to={"/login"}>Log In</Link>
+      </p>
     </div>
     </div>
   </div>
