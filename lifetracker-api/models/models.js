@@ -49,6 +49,18 @@ static async Register(firstname, lastname, email, username, password) {
 }
 
 
+
+static async Nutrition(calories, timestamp, category, quantity) {
+    const result = await db.query(`
+    INSERT INTO nutritional_data (calories, timestamp, category, quantiity)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+    `, [calories, timestamp, category, quantity])
+    const nutrition_info = result.rows[0]
+    return nutrition_info
+}
+
+
 static async fetchUserByEmail(email) {
     const result = await db.query(
       `SELECT id,

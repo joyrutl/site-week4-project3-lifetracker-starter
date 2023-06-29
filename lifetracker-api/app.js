@@ -26,7 +26,7 @@ app.use(morgan("tiny"))
 app.use("/auth", authRoutes)
 app.use("/nutrition", nutritionRoutes)
 app.use("/exercise", exerciseRoutes)
-app.ua("/sleep", sleepRoutes)
+app.use("/sleep", sleepRoutes)
 
 
 /** Handle 404 errors -- this matches everything */
