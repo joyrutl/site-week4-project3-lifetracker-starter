@@ -1,10 +1,16 @@
 import React from 'react'
 import LogInUser from '../LogInUser/LogInUser'
 const LogIn = (props) => {
-  LogInCondition = props.Login
+  // LogInCondition = props.Login
   return (
-    <div>
-      
+    <div className='login-div'>
+      <p>login</p>
+      <form className='login-form'>
+      <label> Email </label>
+      <input type="email" name="email" id="email" />
+      <label> Password </label>
+      <input type="password" name="password" id="password" />
+      </form>
     </div>
   )
 }

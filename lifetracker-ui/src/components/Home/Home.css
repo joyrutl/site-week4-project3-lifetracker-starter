@@ -6,14 +6,14 @@ html, body {
 .Home {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  min-height: 88vh;
   margin-right: 0px;
   /* display: flex; */
 }
 
 .hero-img{
-  background-image: url("	https://lifetracker.up.railway.app/assets/tracker-2a96bfd0.jpg");
-  height: 105vh; 
+  background-image: url("	https://lifetracker.up.railway.app/assets/tracker-2a96bfd0.jpg"); 
+  height: 100vh; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
