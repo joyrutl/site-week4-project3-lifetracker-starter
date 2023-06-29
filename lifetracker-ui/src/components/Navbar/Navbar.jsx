@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import "./Navbar.css"
 
-const Navbar = () => {
+const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs } ) => {
   
   return (
     <div className='navbar'>

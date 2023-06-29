@@ -11,7 +11,7 @@ const SignUpUser = (SignUpInfo) => {
     const password = SignUpInfo.password
     const PostSignUpInfo = async () => {
         try {
-            const response = await axios.post("http://localhost:3001", { 'firstname': firstname, 'lastname': lastname ,'email':email, 'username': username, 'password': password})
+            const response = await axios.post("http://localhost:3001/auth/register", { 'firstname': firstname, 'lastname': lastname ,'email':email, 'username': username, 'password': password})
             console.log(response.data)
         } catch (error) {
             console.error(error)
@@ -19,9 +19,9 @@ const SignUpUser = (SignUpInfo) => {
     }
     PostSignUpInfo()
 
-  return {
-    
-}
+  return (
+    <div> </div>
+)
 }
 
 export default SignUpUser

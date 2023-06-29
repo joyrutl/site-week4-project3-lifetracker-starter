@@ -7,23 +7,29 @@ import SleepPage from "../SleepPage/SleepPage";
 import NutritionPage from "../NutritionPage/NutritionPage"
 import ExercisePage from "../ExercisePage/ExercisePage"
 import ActivityPage from '../ActivityPage/ActivityPage';
-import SignUp from '../SignUp/SignUp';
-import LogIn from '../LogIn/LogIn';
+import LogIn from  '../LogIn/LogIn'
+import LogInUser from '../Api/LogInUser/LogInUser';
+import SignUp from '../SignUp/SignUp'
+import SignUpUser from '../Api/SignUpUser/SignUpUser'
 import Navbar from '../Navbar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-
+import UserNutritions from '../Api/UserNutritions/UserNutritions';
+import UserExcercises from '../Api/UserExcercises/UserExcercises';
+import UserSleep from '../Api/UserSleep/UserSleep';
 
 
 function App() {
+  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
+  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep()
   const [Login, setLogin] = useState()
   return (
     <div className='App'>
       <BrowserRouter>
-        <Navbar />
+        <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } setNutritionLogs = { setNutritionLogs } />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity" element={<ActivityPage />} />
+          <Route path="/activity" element=  {<ActivityPage />} />
           <Route path="/nutrition" element={<NutritionPage />} />
           <Route path='/exercise' element ={<ExercisePage />} />
           <Route path='/sleep' element = {<SleepPage />} />

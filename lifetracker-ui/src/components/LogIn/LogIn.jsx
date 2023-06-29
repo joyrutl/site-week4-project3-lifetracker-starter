@@ -1,5 +1,5 @@
 import React from 'react'
-import LogInUser from '../LogInUser/LogInUser'
+import LogInUser from '../Api/LogInUser/LogInUser'
 const LogIn = (props) => {
   LogInCondition = props.Login
   return (
