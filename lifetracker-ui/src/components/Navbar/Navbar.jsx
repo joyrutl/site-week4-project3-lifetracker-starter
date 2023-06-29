@@ -26,10 +26,10 @@ const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs } ) => {
             <Link  to={"/sleep"}>Sleep</Link>
             </li>
             <li>
-            <Link  to={"/sleep"}>Sign in</Link>
+            <Link  to={"/login"}>Log in</Link>
             </li>
             <li>
-            <Link  to={"/sleep"}>Register</Link>
+            <Link  to={"/signUp"}>Register</Link>
             </li>
             </ul>
         </div>

@@ -10,16 +10,19 @@ CREATE TABLE users (
 CREATE TABLE nutritional_data (
   id         SERIAL PRIMARY KEY,
   calories   INTEGER NOT NULL,
-  timestamp   TIMESTAMP,
+  timestamp   TIMESTAMP NOT NULL DEFAULT NOW(),
   category TEXT NOT NULL,
-  quantiity  INTEGER NOT NULL
+  quantiity  INTEGER NOT NULL,
+  url TEXT NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE exercise_data  (
   id         SERIAL PRIMARY KEY,
   exercise_type   TEXT NOT NULL,
   duration   TIME,
-  intesity INTEGER NOT NULL
+  intesity INTEGER NOT NULL,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE sleep_data (
@@ -27,5 +30,6 @@ CREATE TABLE sleep_data (
   num_of_hours   INTEGER NOT NULL,
   start_time   TIME,
   end_time TIME,
-  date  DATE
+  date  DATE,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
