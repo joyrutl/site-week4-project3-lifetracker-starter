@@ -38,33 +38,33 @@ const SignUp = (props) => {
       <form className='signup-form' onSubmit= {(event) => signUpFormSubmission(event, PostSignUpInfo , signUpInfo) }>
       
       <span className='inline'>
-      <label> First Name: </label> 
-      <input type="text" onChange={ (event) => updateUserFirstName(event) }  />
+      {/* <label> First Name: </label>  */}
+      <input type="text" placeholder="First Name"onChange={ (event) => updateUserFirstName(event) }  />
 
-      <label> Last Name: </label>
-      <input type="text" onChange = { (event) => updateUserLastName(event) } />
+      {/* <label> Last Name: </label> */}
+      <input type="text" placeholder="Last Name" onChange = { (event) => updateUserLastName(event) } />
       
       </span>
       
       <br/>
       
-      <label> Email: </label> <br/>
-      <input type="email" onChange = { (event) => updateUserEmail(event) }/>
+      {/* <label> Email: </label> <br/> */}
+      <input type="email" placeholder="Email" onChange = { (event) => updateUserEmail(event) }/>
     
       <br />
       
-      <label> Username: </label> <br/>
-      <input type="text" onChange={ updateUsername }/>
+      {/* <label> Username: </label> <br/> */}
+      <input type="text" placeholder="Username" onChange={ updateUsername }/>
 
       <br/>
 
-      <label> Password: </label> <br/>
-      <input type="password" onChange = { updateUserPassword } />
+      {/* <label> Password: </label> <br/> */}
+      <input type="password" placeholder="Password" onChange = { updateUserPassword } />
 
       <br/>
 
-      <label> Confirm Password: </label> <br/>
-      <input type="password" onChange={ updateUserComfirmPassword} />
+      {/* <label> Confirm Password: </label> <br/> */}
+      <input type="password"  placeholder="Confirm Password" onChange={ updateUserComfirmPassword} />
 
       <br/>
 
