@@ -22,7 +22,7 @@ function App() {
   const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
   const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
   const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
-  const {PostCallToLogInUser} = LogInUser()
+  // const {PostCallToLogInUser} = LogInUser()
   const [Login, setLogin] = useState(false)
   
   return (
@@ -35,7 +35,7 @@ function App() {
           <Route path="/nutrition" element={<NutritionPage />} />
           <Route path='/exercise' element ={<ExercisePage />} />
           <Route path='/sleep' element = {<SleepPage />} />
-          <Route path = '/login' element= {<LogIn Login={Login} PostCallToLogInUser = { PostCallToLogInUser }  />}  />
+          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
         </Routes>
       

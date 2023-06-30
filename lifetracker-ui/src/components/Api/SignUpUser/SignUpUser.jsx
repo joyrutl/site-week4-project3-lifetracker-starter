@@ -10,7 +10,7 @@ const SignUpUser = (SignUpInfo) => {
     const email = SignUpInfo.email
     const password = SignUpInfo.password
     const PostSignUpInfo = async (SignUpInfo) => {
-        console.log('PostSignUpInfo was called', PostSignUpInfo)
+        console.log('PostSignUpInfo was called', SignUpInfo)
         try {
             const response = await axios.post("http://localhost:3001/auth/register", { 'firstname': firstname, 'lastname': lastname ,'email':email, 'username': username, 'password': password})
             console.log(response.data)
