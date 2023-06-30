@@ -8,7 +8,7 @@ const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs } ) => {
     <div className='navbar'>
         <div className="content">
             <div className='logo'>
-            <a className="chakra-link css-14rj303" href="/">
+            <a href="/">
               <img src="https://lifetracker.up.railway.app/assets/codepath-f1b3e41a.svg" alt="logo"/>
             </a>
             </div>

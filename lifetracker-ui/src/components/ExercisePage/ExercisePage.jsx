@@ -1,8 +1,17 @@
 import React from 'react'
+import "./ExercisePage.css"
 
 const ExercisePage = () => {
   return (
-    <div>ExercisePage</div>
+  <div>
+  
+  <div className='header-img'>
+    <h1 className='header'>Exercise</h1>
+  </div>
+  
+  
+  </div>
+
   )
 }
 
