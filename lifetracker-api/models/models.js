@@ -60,6 +60,21 @@ static async Nutrition(calories, category, quantity, url, user_id) {
     return nutrition_info
 }
 
+static async Exercise(exercise_type, duration, intensity, user_id) {
+    const result = await db.query(`
+    INSERT INTO exercise_data (exercise_type, duration, intensity, user_id)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+    `, [exercise_type, duration, intensity, user_id])
+    const exercise_info = result.rows[0]
+    return exercise_info
+
+}
+
+static async Sleep(){
+    
+}
+
 
 static async fetchUserByEmail(email) {
     const result = await db.query(

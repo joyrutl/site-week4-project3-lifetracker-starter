@@ -14,7 +14,6 @@ CREATE TABLE nutritional_data (
   category TEXT NOT NULL,
   quantiity  INTEGER NOT NULL,
   url TEXT NOT NULL,
---   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 

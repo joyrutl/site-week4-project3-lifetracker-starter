@@ -40,7 +40,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
       const updateUsername = (event, signUpInfo )=>{
         event.preventDefault()
         let UpdatedUserinput = {}
-        UpdatedUserinput = {'userName': event.target.value}
+        UpdatedUserinput = {'username': event.target.value}
         setSignUpInfo(signUpInfo => ({
           ...signUpInfo,
           ...UpdatedUserinput
