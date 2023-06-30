@@ -5,13 +5,14 @@ import LogIn from '../../LogIn/LogIn';
 const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
     console.log(setLogin)
     console.log(LoginInfo)
+    console.log(setLoginInfo)
     const email = LoginInfo.email
     const password = LoginInfo.password
     const PostCallToLogInUser = async () => {
         try {
             const response = await axios.post("http://localhost:3001/auth/login", {'email':email,  'password': password});
             console.log(response.data)
-            userInfoInDb = response.data
+            let userInfoInDb = response.data
             setLoginInfo(userInfoInDb.id)
             setLogin(true)
         } catch (error) {
