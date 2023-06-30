@@ -12,7 +12,7 @@ const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
             const response = await axios.post("http://localhost:3001/auth/login", {'email':email,  'password': password});
             console.log(response.data)
             userInfoInDb = response.data
-            setLoginInfo(userInfoInDb)
+            setLoginInfo(userInfoInDb.id)
             setLogin(true)
         } catch (error) {
             console.error(error)

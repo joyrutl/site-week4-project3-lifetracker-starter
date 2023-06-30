@@ -4,7 +4,12 @@ import {Link} from 'react-router-dom'
 import LogInUser from '../Api/LogInUser/LogInUser'
 import LogInEventFunctions from './LogInEventFunctions'
 import { useState, useEffect } from "react";
+<<<<<<< HEAD
 const LogIn = ({Login, setLogin  }) => {
+=======
+
+const LogIn = ({Login, PostCallToLogInUser  }) => {
+>>>>>>> feb18db79122218ddfa379248ce51238cec7ebe1
   // LogInCondition = props.Login
   const [LoginInfo, setLoginInfo] = useState({ 'email': null, 'password': null })
   const {PostCallToLogInUser} =   LogInUser({LoginInfo, setLogin} )
