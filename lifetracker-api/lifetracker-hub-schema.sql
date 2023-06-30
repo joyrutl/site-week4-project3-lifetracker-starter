@@ -14,7 +14,8 @@ CREATE TABLE nutritional_data (
   category TEXT NOT NULL,
   quantiity  INTEGER NOT NULL,
   url TEXT NOT NULL,
-  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+--   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE exercise_data  (
@@ -22,7 +23,7 @@ CREATE TABLE exercise_data  (
   exercise_type   TEXT NOT NULL,
   duration   TIME,
   intesity INTEGER NOT NULL,
-  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE sleep_data (
@@ -31,5 +32,5 @@ CREATE TABLE sleep_data (
   start_time   TIME,
   end_time TIME,
   date  DATE,
-  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL
 );

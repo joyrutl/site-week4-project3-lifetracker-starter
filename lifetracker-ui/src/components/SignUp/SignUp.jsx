@@ -1,16 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-<<<<<<< HEAD
+import "./SignUp.css"
 import SignUpUser from '../Api/SignUpUser/SignUpUser'
 const SignUp = (props) => {
   const [signUpInfo, setSignUpInfo]  = useState({'firstname': null , 'lastname': null , 'username': null, 'email': null, 'password':null })
-=======
-import "./SignUp.css"
-import SignUpUser from '../SignUpUser/SignUpUser'
-
-const SignUp = (props) => {
-  const [signUpInfo, setSignUpInfo]  = useState({})
->>>>>>> 59722db68b911ddf29cce8b04e68c9efbf5dca31
   
   // const handleSignUp = ((e)=>{
   //   e.preventDefault()

@@ -4,6 +4,7 @@ const router = express.Router()
 
 router.post("/addnutritiondata", async (request, response, next) => {
     const {calories, category, quantity, url} = request.body
+    const user = response.locals.user
     try {
         const nutrition_info = await User.Nutrition(calories, category, quantity, url)
         return response.status(200).json(nutrition_info)
