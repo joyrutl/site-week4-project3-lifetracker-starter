@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import "./SignUp.css"
+import {Link} from 'react-router-dom'
 import SignUpUser from '../Api/SignUpUser/SignUpUser'
 import SignUpEventFunctions from './SignUpEventFunctions'
-import "./SignUp.css"
-
 const SignUp = (props) => {
-  const [signUpInfo, setSignUpInfo]  = useState({'firstname': null, 'lastname': null, 'email': null, 'userName':null ,'password': null, 'confirmPassword': null})
+  const [signUpInfo, setSignUpInfo]  = useState({'firstname': null , 'lastname': null , 'username': null, 'email': null, 'password':null })
   const {PostSignUpInfo} = SignUpUser(signUpInfo)
   
   // const updateUserName = (event )=>{
@@ -32,6 +32,7 @@ const SignUp = (props) => {
     <div className='content-right'>
 
     <div className='form-div'>
+      <img src="https://icones.pro/wp-content/uploads/2021/02/icone-utilisateur.png" alt="" />
       <h1>Create Account</h1>
 
       <form className='signup-form' onSubmit= {(event) => signUpFormSubmission(event, PostSignUpInfo , signUpInfo) }>
@@ -69,6 +70,9 @@ const SignUp = (props) => {
 
       <button type="submit">Create Account</button>
       </form>
+      <p className='prompt'>Already have an account?    
+      <Link to={"/login"}>Log In</Link>
+      </p>
     </div>
     </div>
   </div>

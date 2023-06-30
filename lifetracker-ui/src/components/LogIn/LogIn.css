@@ -1,0 +1,73 @@
+.image-bg{
+    width: 100%; 
+    height: 90vh;
+    background-color:#103c44;
+    /* background-image: url("https://dezerv-strapi-test.s3.ap-south-1.amazonaws.com/The_Real_Cost_of_Living_a_Healthy_Lifestyle_e2c4212e3b.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.login-div{ 
+    font-family: Verdana, sans-serif;
+    background-color: white;
+    box-shadow: 1px 1px 3px grey;
+    top: 46%;
+    left: 50%;
+    width: 30em;
+    height: 23em;
+    margin-top: -9em;
+    margin-left: -15em;
+    background-color: white;
+    position: fixed;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+.login-div h1{
+    font-size: 40px;
+    color: #103c44;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.login-div p{
+    font-size: 20px;
+    color: #103c44;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.login-div .prompt{
+    font-size: 18px;
+}
+
+.login-form input{
+    margin-top: 2px; 
+    margin-bottom: 20px;
+    background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	width: 90%;
+}
+
+.login-div button{
+    border: solid #103c44 2px; 
+    border-radius: 5px;
+    background-color: #103c44;
+    font-size: 20px;
+    font-weight: bold;
+    color: white; 
+    width: 96.5%; 
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+.login-div button:hover{
+    border: solid #103c44 2px;
+    color: #103c44; 
+    background-color: transparent;
+  }
+
