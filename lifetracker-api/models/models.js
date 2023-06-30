@@ -50,10 +50,9 @@ static async Register(firstname, lastname, email, username, password) {
 
 
 
-static async Nutrition(calories, category, quantity, url, user) {
-    const user_id = user.id
+static async Nutrition(calories, category, quantity, url, user_id) {
     const result = await db.query(`
-    INSERT INTO nutritional_data (calories, category, quantiity, url)
+    INSERT INTO nutritional_data (calories, category, quantiity, url, user_id)
     VALUES ($1, $2, $3, $4, $5)
     RETURNING *
     `, [calories, category, quantity, url, user_id])
