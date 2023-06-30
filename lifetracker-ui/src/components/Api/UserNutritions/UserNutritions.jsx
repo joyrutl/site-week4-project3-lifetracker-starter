@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
 const UserNutritions = () => {
     const [NutritionLogs, setNutritionLogs] = useState()
     const GetUserNutritionLogs = async () => {

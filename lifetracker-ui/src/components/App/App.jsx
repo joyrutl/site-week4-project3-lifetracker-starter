@@ -21,20 +21,22 @@ import UserSleep from '../Api/UserSleep/UserSleep';
 function App() {
   const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
   const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
-  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep()
-  const [Login, setLogin] = useState()
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
+  const {PostCallToLogInUser} = LogInUser()
+  const [Login, setLogin] = useState(false)
+  
   return (
     <div className='App'>
       <BrowserRouter>
         <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } setNutritionLogs = { setNutritionLogs } />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/activity" element=  {<ActivityPage />} />
+          <Route path="/activity" element=  {<ActivityPage  />} />
           <Route path="/nutrition" element={<NutritionPage />} />
           <Route path='/exercise' element ={<ExercisePage />} />
           <Route path='/sleep' element = {<SleepPage />} />
-          <Route path = '/login' element= {<LogIn Login={Login}/>}  />
-          <Route path = '/signUp' element = {< SignUp  />} />
+          <Route path = '/login' element= {<LogIn Login={Login} PostCallToLogInUser = { PostCallToLogInUser }  />}  />
+          <Route path = '/signUp' element = {< SignUp   />} />
         </Routes>
       
       </BrowserRouter>

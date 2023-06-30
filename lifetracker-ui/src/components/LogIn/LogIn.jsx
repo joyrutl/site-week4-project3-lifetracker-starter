@@ -2,9 +2,12 @@ import React from 'react'
 import "./LogIn.css"
 import {Link} from 'react-router-dom'
 import LogInUser from '../Api/LogInUser/LogInUser'
+import { useState, useEffect } from "react";
 
-const LogIn = (props) => {
+const LogIn = ({Login, PostCallToLogInUser  }) => {
   // LogInCondition = props.Login
+  const [LoginInfo, setLoginInfo] = useState({ 'email': null, 'password': null })
+
   return (
    <div className='image-bg'>
 
