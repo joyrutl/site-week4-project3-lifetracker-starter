@@ -13,7 +13,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
     
       }
     
-      const updateUserLastName = (event, signUpInfo )=>{
+      const updateUserLastName = (event )=>{
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'lastname': event.target.value}
@@ -25,7 +25,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
       }
     
     
-      const updateUserEmail = (event, signUpInfo )=>{
+      const updateUserEmail = (event)=>{
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'email': event.target.value}
@@ -37,7 +37,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
       }
     
     
-      const updateUsername = (event, signUpInfo )=>{
+      const updateUsername = (event )=>{
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'username': event.target.value}
@@ -48,7 +48,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
     
       }
     
-      const updateUserPassword = (event, signUpInfo )=>{
+      const updateUserPassword = (event )=>{
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'password': event.target.value}
@@ -59,7 +59,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
     
       }
 
-      const updateUserComfirmPassword = (event, signUpInfo) => {
+      const updateUserComfirmPassword = (event) => {
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'confirmPassword': event.target.value}
