@@ -32,9 +32,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activity" element=  {<ActivityPage  />} />
-          <Route path="/nutrition" element={<NutritionPage />} />
-          <Route path='/exercise' element ={<ExercisePage />} />
-          <Route path='/sleep' element = {<SleepPage />} />
+          <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs}  />} />
+          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} />} />
+          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} />} />
           <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
         </Routes>
