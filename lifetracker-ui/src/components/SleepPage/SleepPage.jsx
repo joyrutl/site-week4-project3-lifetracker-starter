@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
-import sleepPageFunctions from './sleepPageFunctions'
+import SleepPageFunctions from "./SleepPageFunctions"
 const SleepPage = ({ SleepLogs, setSleepLogs }) => {
   // const = sleepPageFunctions
-
+  const { sleepPageFunctions }  =  SleepPageFunctions()
 
   return (
     <div>SleepPage</div>

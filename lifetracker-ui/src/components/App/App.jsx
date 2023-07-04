@@ -1,5 +1,5 @@
-import './App.css'
 import React from 'react';
+import './App.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "../Home/Home";
@@ -21,10 +21,16 @@ import UserSleep from '../Api/UserSleep/UserSleep';
 function App() {
   const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
   const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
-  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
-  // const {PostCallToLogInUser} = LogInUser()
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep()
+  const {PostCallToLogInUser} = LogInUser()
   const [Login, setLogin] = useState(false)
+  const [UserID, setUserID] = useState()
   
+  if (LogIn) {
+    GetSleepingData()
+
+  }
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -34,8 +40,8 @@ function App() {
           <Route path="/activity" element=  {<ActivityPage  />} />
           <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs}  />} />
           <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} />} />
-          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} />} />
-          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
+          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } />} />
+          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } UserID = { UserID } setUserID = { setUserID } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
         </Routes>
       
