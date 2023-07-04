@@ -22,14 +22,12 @@
     justify-content: center; 
 }
 
-.form-div{
-    margin-left: 5%; 
-    margin-top: 11%;
-}
 
 .form-div{
     font-family: Verdana, sans-serif;
     font-size: 20px;
+    margin-left: 5%; 
+    margin-top: 11%;
 }
 
 .form-div h1{
@@ -43,8 +41,7 @@
 .form-div img{
     width: 80px;
     height: 80px;
-    margin-left: 36%; 
-    
+    margin-left: 36%;  
 }
 
 .signup-form input{
@@ -86,7 +83,7 @@
     background-color: transparent;
   }
 
-input::placeholder {
+.form-div input::placeholder {
     font: 20px sans-serif;
     color: #103c44; 
 }

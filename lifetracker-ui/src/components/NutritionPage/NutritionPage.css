@@ -1,19 +1,12 @@
-.NutritionPage {
-  background: #f7fafc;
+.header-wrap-nutri{
+  width: 100%; 
+  height: 20vh;
+  background-color:#F24C3D;
 }
-.NutritionPage .nutrition-feed {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px;
-}
-.white {
-  color: white;
-}
-.NutritionPage .button {
-  display: flex;
-}
-.NutritionPage .button button {
-  flex: 1;
+
+.header{
+color: white; 
+text-align: center;
+padding-top: 90px;
+font-family: "Avenir", sans-serif;
 }

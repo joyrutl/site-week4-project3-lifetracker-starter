@@ -14,6 +14,7 @@ const Home = () => {
            <Link  to={"/login"}> <button> Log in </button></Link> 
           </span>
         </div>
+      </div>
         <div className='tiles'>
           <div className='card'>
             <img className="fitness" src="https://lifetracker.up.railway.app/assets/athlete-adf95577.jpg" alt="" />
@@ -40,7 +41,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      
 
     </div>
   )

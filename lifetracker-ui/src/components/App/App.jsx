@@ -16,6 +16,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserNutritions from '../Api/UserNutritions/UserNutritions';
 import UserExcercises from '../Api/UserExcercises/UserExcercises';
 import UserSleep from '../Api/UserSleep/UserSleep';
+import SleepPageCreate from '../SleepPageCreate/SleepPageCreate';
+import NutritionPageCreate from '../NutritionPageCreate/NutritionPageCreate';
+import ExercisePageCreate from '../ExercisePageCreate/ExercisePageCreate';
 
 
 function App() {
@@ -37,6 +40,11 @@ function App() {
           <Route path='/sleep' element = {<SleepPage />} />
           <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
+          <Route path = '/sleep/create' element = {< SleepPageCreate />} />
+          <Route path = '/nutrition/create' element = {< NutritionPageCreate />} />
+          <Route path = '/exercise/create' element = {< ExercisePageCreate />} />
+
+
         </Routes>
       
       </BrowserRouter>
