@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
-const UserSleep = () => {
+const UserSleep = (userID) => {
     const [SleepLogs, setSleepLogs] = useState()
     const GetSleepingData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/sleep/sleeplogs", userID );
+            const response = await axios.get("http://localhost:3001/sleep/sleeplogs");
             console.log(response.data)
             setSleepLogs(response.data)
         } catch (error) {

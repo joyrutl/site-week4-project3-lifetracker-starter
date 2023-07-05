@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom'
 import "./NutritionPage.css"
 
 
-const NutritionPage = () => {
+const NutritionPage = ( ) => {
+
+  
+
   return (
     <div>
     <div className='header-wrap-nutri'>

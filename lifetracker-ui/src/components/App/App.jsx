@@ -22,15 +22,17 @@ import ExercisePageCreate from '../ExercisePageCreate/ExercisePageCreate';
 
 
 function App() {
-  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
-  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
-  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep()
-  const [Login, setLogin] = useState(false)
   const [UserID, setUserID] = useState()
+  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions({ UserID })
+  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises(UserID)
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep(UserID)
+  const [Login, setLogin] = useState(false)
+  
   
   if (Login) {
     GetSleepingData()
-
+    GetUserNutritionLogs()
+    GetUserExcercises()
   }
 
   return (
@@ -40,13 +42,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activity" element=  {<ActivityPage  />} />
-          <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs}  />} />
-          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} />} />
+          <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs} PostUserNutritionLogs = { PostUserNutritionLogs } />} />
+          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} PostUserExcercises = { PostUserExcercises } UserID = { UserID }/>} />
           <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } UserID  = { UserID }/>} />
           <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } UserID = { UserID } setUserID = { setUserID } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
           <Route path = '/sleep/create' element = {< SleepPageCreate />} />
-          <Route path = '/nutrition/create' element = {< NutritionPageCreate />} />
+          <Route path = '/nutrition/create' element = {< NutritionPageCreate PostUserNutritionLogs = { PostUserNutritionLogs }  />} />
           <Route path = '/exercise/create' element = {< ExercisePageCreate />} /> 
         </Routes>
       

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import LogIn from '../../LogIn/LogIn';
 
-const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
+const LogInUser = ({setLogin , LoginInfo , setLoginInfo, setUserID }) => {
     console.log(setLogin)
     console.log(LoginInfo)
     console.log(setLoginInfo)
@@ -12,8 +12,8 @@ const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
         try {
             const response = await axios.post("http://localhost:3001/auth/login", {'email':email,  'password': password});
             console.log(response.data)
-            let userInfoInDb = response.data
-            setLoginInfo(userInfoInDb.id)
+            let userInfo = response.data
+            setUserID(userInfo.id)
             setLogin(true)
         } catch (error) {
             console.error(error)

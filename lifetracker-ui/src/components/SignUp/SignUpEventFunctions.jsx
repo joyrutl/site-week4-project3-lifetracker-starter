@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
+const SignUpEventFunctions = ( {setSignUpInfo } ) => {
 
     let history = useNavigate()
     const updateUserFirstName = (event)=>{
