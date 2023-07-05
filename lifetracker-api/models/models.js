@@ -50,12 +50,12 @@ static async Register(firstname, lastname, email, username, password) {
 
 
 
-static async Nutrition(calories, category, quantity, url, user_id) {
+static async Nutrition(name, calories, category, quantity, url, user_id) {
     const result = await db.query(`
-    INSERT INTO nutritional_data (calories, category, quantiity, url, user_id)
-    VALUES ($1, $2, $3, $4, $5)
+    INSERT INTO nutritional_data (name, calories, category, quantiity, url, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *
-    `, [calories, category, quantity, url, user_id])
+    `, [name, calories, category, quantity, url, user_id])
     const nutrition_info = result.rows[0]
     return nutrition_info
 }
@@ -71,8 +71,15 @@ static async Exercise(exercise_type, duration, intensity, user_id) {
 
 }
 
-static async Sleep(){
-    
+static async Sleep(num_of_hours, start_time, end_time, date, user_id) {
+    const result = await db.query(`
+    INSERT INTO exercise_data (num_of_hours, start_time, end_time, user_id)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *
+    `, [num_of_hours, start_time, end_time, user_id])
+    const sleep_info = result.rows[0]
+    return sleep_info
+
 }
 
 
@@ -92,6 +99,47 @@ static async fetchUserByEmail(email) {
     const user = result.rows[0]
 
     return user
+  }
+
+  static async fetchNutritionalData(id) {
+        const result = await db.query(
+            `SELECT name,
+                    calories, 
+                    category, 
+                    quantiity, 
+                    url
+                FROM nutritional_data
+                WHERE user_id = $1`,
+                [id]
+        )
+        const nutritionalData = result;
+        return nutritionalData
+  }
+
+  static async fetchExerciseData(id) {
+    const result = await db.query(
+    `SELECT exercise_type, 
+            duration, 
+            intensity
+        FROM exercise_data
+        WHERE user_id = $1`,
+        [id]
+    )
+    const exerciseData = result
+    return exerciseData
+  }
+
+  static async fetchSleepData(id) {
+    const result = await db.query(
+        `SELECT num_of_hours, 
+                start_time, 
+                end_time
+            FROM sleep_data
+            WHERE user_id = $1`,
+            [id]
+    )
+    const sleepData = result
+    return sleepData
   }
 
 }

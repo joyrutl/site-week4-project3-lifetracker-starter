@@ -24,6 +24,7 @@ function App() {
   const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
   // const {PostCallToLogInUser} = LogInUser()
   const [Login, setLogin] = useState(false)
+  console.log(Login)
   
   return (
     <div className='App'>

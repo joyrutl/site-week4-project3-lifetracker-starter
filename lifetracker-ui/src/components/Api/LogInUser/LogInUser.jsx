@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import LogIn from '../../LogIn/LogIn';
 
-const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
+const LogInUser = ({LoginInfo , setLogin , setLoginInfo }) => {
     console.log(setLogin)
     console.log(LoginInfo)
     console.log(setLoginInfo)
@@ -14,6 +14,7 @@ const LogInUser = ({setLogin , LoginInfo , setLoginInfo }) => {
             console.log(response.data)
             let userInfoInDb = response.data
             setLoginInfo(userInfoInDb.id)
+            console.log(LoginInfo)
             setLogin(true)
         } catch (error) {
             console.error(error)
