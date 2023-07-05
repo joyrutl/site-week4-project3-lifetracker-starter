@@ -13,7 +13,7 @@ html, body {
 
 .hero-img{
   background-image: url("	https://lifetracker.up.railway.app/assets/tracker-2a96bfd0.jpg"); 
-  height: 100vh; 
+  height: 95vh; 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -39,11 +39,6 @@ html, body {
   margin-bottom: 20px;
 }
 
-.hero-img .tiles{
-  margin-top: 12%;
-  padding-left: 3%;
-}
-
 .card {
   display: inline-block;
   background-color: white;
@@ -54,7 +49,7 @@ html, body {
   margin-left: 30px; 
   padding-bottom: 10px; 
   width: 300px; 
-  height: 250px; 
+  height: 350px; 
   opacity: 0.8;
 }
 .card:hover {
@@ -62,11 +57,12 @@ html, body {
 }
 
 .card img{
-  height: 200px;
+  height: 300px;
   width: 100%;    
-  border-radius: 3px; 
+  border-radius: 10px; 
   opacity: 1;
 }
+
 
 .hero-title button{
   border: solid white 2px; 
@@ -88,6 +84,19 @@ html, body {
   background-color: white;
 }
 
+
+.Home .tiles{
+    /* background-color: red;  */
+    width: 100%;
+    text-align: center;
+}
+
+.text{ 
+  font-size: 25px;
+  color: navy; 
+  font-weight: bold;
+
+}
 
 
 

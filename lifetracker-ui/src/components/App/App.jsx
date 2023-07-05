@@ -1,5 +1,5 @@
-import './App.css'
 import React from 'react';
+import './App.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "../Home/Home";
@@ -16,16 +16,26 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserNutritions from '../Api/UserNutritions/UserNutritions';
 import UserExcercises from '../Api/UserExcercises/UserExcercises';
 import UserSleep from '../Api/UserSleep/UserSleep';
+import SleepPageCreate from '../SleepPageCreate/SleepPageCreate';
+import NutritionPageCreate from '../NutritionPageCreate/NutritionPageCreate';
+import ExercisePageCreate from '../ExercisePageCreate/ExercisePageCreate';
 
 
 function App() {
-  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
-  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
-  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
-  // const {PostCallToLogInUser} = LogInUser()
+  const [UserID, setUserID] = useState()
+  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions({ UserID })
+  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises(UserID)
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep(UserID)
   const [Login, setLogin] = useState(false)
   console.log(Login)
   
+  
+  if (Login) {
+    GetSleepingData()
+    GetUserNutritionLogs()
+    GetUserExcercises()
+  }
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -33,11 +43,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/activity" element=  {<ActivityPage  />} />
-          <Route path="/nutrition" element={<NutritionPage />} />
-          <Route path='/exercise' element ={<ExercisePage />} />
-          <Route path='/sleep' element = {<SleepPage />} />
-          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
+          <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs} PostUserNutritionLogs = { PostUserNutritionLogs } />} />
+          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} PostUserExcercises = { PostUserExcercises } UserID = { UserID }/>} />
+          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } UserID  = { UserID }/>} />
+          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } UserID = { UserID } setUserID = { setUserID } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
+          <Route path = '/sleep/create' element = {< SleepPageCreate />} />
+          <Route path = '/nutrition/create' element = {< NutritionPageCreate PostUserNutritionLogs = { PostUserNutritionLogs }  />} />
+          <Route path = '/exercise/create' element = {< ExercisePageCreate />} /> 
         </Routes>
       
       </BrowserRouter>
@@ -46,4 +59,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
