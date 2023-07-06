@@ -2,7 +2,7 @@ const express = require('express')
 const User = require('../models/models')
 const router = express.Router()
 
-router.post("/exercise", async (request, response) => {
+router.post("/addexercise", async (request, response) => {
     const {exercise_type, duration, intensity, user_id} = request.body
     try {
         const exercise_info = await User.Exercise(exercise_type, duration, intensity, user_id)
@@ -13,8 +13,8 @@ router.post("/exercise", async (request, response) => {
 
 })
 
-router.get("/useexercisedata", async (request, response, next) => {
-    const {UserID} = request.body
+router.get("/useexercisedata/:id", async (request, response, next) => {
+    const {UserID} = request.params.id
     try {
         const exerciseData = await User.fetchExerciseData(UserID)
         return response.status(200).json(exerciseData)

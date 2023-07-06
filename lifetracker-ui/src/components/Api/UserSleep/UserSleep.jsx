@@ -5,7 +5,7 @@ const UserSleep = (userID) => {
     const [SleepLogs, setSleepLogs] = useState()
     const GetSleepingData = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/sleep/sleeplogs");
+            const response = await axios.get(`http://localhost:3001/sleep/sleeplogs/${userID}`);
             console.log(response.data)
             setSleepLogs(response.data)
         } catch (error) {

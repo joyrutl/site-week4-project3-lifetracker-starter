@@ -13,8 +13,8 @@ router.post("/sleepingData", async (request, response) => {
 
 })
 
-router.get("/sleeplogs", async (request, response, next) => {
-    const {UserID} = request.body
+router.get("/sleeplogs/:id", async (request, response, next) => {
+    const {UserID} = request.body.id
     try{
         const sleepData = await User.fetchSleepData(UserID)
         return response.status(200).useChunkedEncodingByDefault(sleepData)
