@@ -1,22 +1,23 @@
 import React from 'react'
 import { useState } from 'react'
-
-const UserSleep = () => {
+import axios from 'axios'
+const UserSleep = ({UserID}) => {
     const [SleepLogs, setSleepLogs] = useState()
     const GetSleepingData = async () => {
         try {
-            const response = await axios.post("http://localhost:3001/sleep");
+            const response = await axios.get(`http://localhost:3001/sleep/sleeplogs/${userID}`);
             console.log(response.data)
-            setExcerciseLogs(response.data)
+            setSleepLogs(response.data)
         } catch (error) {
             console.error(error)
         }
     }
-    const PostSleepingData = async () => {
+    const PostSleepingData = async (SleepingLog) => {
         try {
-            const response = await axios.post("http://localhost:3001/sleep/sleepingData");
+            console.log(`Sleeping Log is: ${SleepingLog} UserID is: ${UserID}`)
+            const response = await axios.post("http://localhost:3001/sleep/sleepingData", { 'starttime' :SleepingLog.starttime, 'endtime': SleepingLog.endtime, 'UserID': UserID } );
             console.log(response.data)
-            SetLogInUserInfo(true)
+            // SetLogInUserInfo(true)
         } catch (error) {
             console.error(error)
         }

@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import "./Navbar.css"
+import LogIn from '../LogIn/LogIn'
 
-const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs } ) => {
+const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs, Login } ) => {
   
   return (
     <div className='navbar'>
@@ -25,13 +26,22 @@ const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs } ) => {
             <li>
             <Link  to={"/sleep"}>Sleep</Link>
             </li>
+            {(!Login)?
             <li>
             <Link  to={"/login"}>Log in</Link>
+            </li>: 
+            <li>
+              <Link to= {"/Signout"}>Signout</Link>
             </li>
+}
+            {(!Login)?
             <li>
             <Link  to={"/signUp"}>Register</Link>
-            </li>
+            </li>:
+            null
+}
             </ul>
+
         </div>
 
     </div>

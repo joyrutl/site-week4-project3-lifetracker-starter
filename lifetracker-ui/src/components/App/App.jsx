@@ -1,5 +1,5 @@
-import './App.css'
 import React from 'react';
+import './App.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "../Home/Home";
@@ -16,27 +16,49 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserNutritions from '../Api/UserNutritions/UserNutritions';
 import UserExcercises from '../Api/UserExcercises/UserExcercises';
 import UserSleep from '../Api/UserSleep/UserSleep';
+import SleepPageCreate from '../SleepPageCreate/SleepPageCreate';
+import NutritionPageCreate from '../NutritionPageCreate/NutritionPageCreate';
+import ExercisePageCreate from '../ExercisePageCreate/ExercisePageCreate';
 
 
 function App() {
-  const {NutritionLogs, setNutritionLogs, PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions()
-  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises()
-  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep
-  // const {PostCallToLogInUser} = LogInUser()
+  const [UserID, setUserID] = useState()
+  const [NutritionLogs, setNutritionLogs] = useState([])
+  const {PostUserNutritionLogs, GetUserNutritionLogs}  = UserNutritions({ UserID})
+  const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises({ UserID })
+  const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep({ UserID })
   const [Login, setLogin] = useState(false)
   
+  console.log(UserID)
+  console.log(Login)
+  
+  // i have handle login here
+  // at the end of its job you should setLogin(true)
+  //if you have handle logout
+  // setLogin(false) and clear the local storage
+
+  if (Login) {
+    useEffect(() => {GetSleepingData() }, [])
+    useEffect( () => { GetUserNutritionLogs( setNutritionLogs ) }, [])
+    console.log("Hi I am in")
+    useEffect(() => {GetUserExcercises() }, [])
+  }
+
   return (
     <div className='App'>
       <BrowserRouter>
-        <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } setNutritionLogs = { setNutritionLogs } />
+        <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } Login = {Login} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home  Login = {Login} />} />
           <Route path="/activity" element=  {<ActivityPage  />} />
-          <Route path="/nutrition" element={<NutritionPage NutritionLogs = {NutritionLogs} setNutritionLogs = {setNutritionLogs}  />} />
-          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} />} />
-          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} />} />
-          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } />}  />
+          <Route path="/nutrition" element={<NutritionPage PostUserNutritionLogs = { PostUserNutritionLogs } NutritionLogs = {NutritionLogs} />} />
+          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} PostUserExcercises = { PostUserExcercises } UserID = { UserID }/>} />
+          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } UserID  = { UserID }/>} />
+          <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } UserID = { UserID } setUserID = { setUserID } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
+          <Route path = '/sleep/create' element = {< SleepPageCreate PostSleepingData = {PostSleepingData} />} />
+          <Route path = '/nutrition/create' element = {< NutritionPageCreate PostUserNutritionLogs = { PostUserNutritionLogs }  />} />
+          <Route path = '/exercise/create' element = {< ExercisePageCreate PostUserExcercises = {PostUserExcercises } />} /> 
         </Routes>
       
       </BrowserRouter>
@@ -45,4 +67,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

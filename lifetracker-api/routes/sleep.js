@@ -2,19 +2,25 @@ const express = require('express')
 const User = require('../models/models')
 const router = express.Router()
 
-router.post("/sleep", async (request, response) => {
-    const {num_of_hours, duration, intensity, user_id} = request.body
+router.post("/sleepingData", async (request, response) => {
+    const {num_of_hours, start_time, end_time, date, user_id} = request.body
     try {
-        const nutrition_info = await User.Exercise(exercise_type, duration, intensity, user_id)
-        return response.status(200).json(nutrition_info)
+        const sleep_info = await User.Exercise(num_of_hours, start_time, end_time, date, user_id)
+        return response.status(200).json(sleep_info)
     } catch (error) {
         next(error)
     }
 
 })
 
-router.get("/", (request, response) => {
-
+router.get("/sleeplogs/:id", async (request, response, next) => {
+    const {UserID} = request.body.id
+    try{
+        const sleepData = await User.fetchSleepData(UserID)
+        return response.status(200).useChunkedEncodingByDefault(sleepData)
+    }catch(error) {
+        next(error)
+    }
 })
 
 module.exports = router;
