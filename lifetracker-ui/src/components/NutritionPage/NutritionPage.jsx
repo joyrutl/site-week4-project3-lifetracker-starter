@@ -5,8 +5,11 @@ import { useState } from 'react'
 import "./NutritionPage.css"
 
 
-const NutritionPage = ( ) => {
-
+const NutritionPage = ({ GetUserNutritionLogs , setNutritionLogs, NutritionLogs , Login} ) => {
+  if (Login){
+  useEffect( () => { GetUserNutritionLogs( setNutritionLogs ) }, [])
+  }
+  console.log(NutritionLogs)
   return (
     <div>
     <div className='header-wrap-nutri'>

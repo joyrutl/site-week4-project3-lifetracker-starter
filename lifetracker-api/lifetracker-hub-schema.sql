@@ -23,16 +23,16 @@ CREATE TABLE nutritional_data (
 
 CREATE TABLE exercise_data  (
   id         SERIAL PRIMARY KEY,
+  name       TEXT NOT NULL,
   exercise_type   TEXT NOT NULL,
   duration   INTEGER NOT NULL,
-  intesity INTEGER NOT NULL,
+  intensity INTEGER NOT NULL,
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE SET NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE sleep_data (
   id         SERIAL PRIMARY KEY,
-  num_of_hours   INTEGER NOT NULL,
   start_time   TIMESTAMP NOT NULL,
   end_time TIMESTAMP NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),

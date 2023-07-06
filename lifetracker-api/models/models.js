@@ -60,23 +60,29 @@ static async Nutrition(name, calories, category, quantity, url, user_id) {
     return nutrition_info
 }
 
-static async Exercise(exercise_type, duration, intensity, user_id) {
+static async Exercise(name, category, duration, intensity, user_id) {
     const result = await db.query(`
-    INSERT INTO exercise_data (exercise_type, duration, intensity, user_id)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO exercise_data (name, exercise_type, duration, intensity, user_id)
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING *
-    `, [exercise_type, duration, intensity, user_id])
+    `, [name, category, duration, intensity, user_id])
     const exercise_info = result.rows[0]
     return exercise_info
 
 }
 
-static async Sleep(num_of_hours, start_time, end_time, date, user_id) {
+static async Sleep(start_time, end_time, user_id) {
+    const startdateObject = new Date(start_time)
+    const enddateObject = new Date(end_time)
+    const formatted_start_time = startdateObject.toISOString().slice(0, 19).replace('T', ' ');
+    const formatted_end_time = enddateObject.toISOString().slice(0, 19).replace('T', ' ');
+    console.log(formatted_end_time)
+    console.log(formatted_start_time)
     const result = await db.query(`
-    INSERT INTO exercise_data (num_of_hours, start_time, end_time, user_id)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO sleep_data (start_time, end_time, user_id)
+    VALUES ($1, $2, $3)
     RETURNING *
-    `, [num_of_hours, start_time, end_time, user_id])
+    `, [formatted_start_time, formatted_end_time, user_id])
     const sleep_info = result.rows[0]
     return sleep_info
 
@@ -118,7 +124,8 @@ static async fetchUserByEmail(email) {
 
   static async fetchExerciseData(id) {
     const result = await db.query(
-    `SELECT exercise_type, 
+    `SELECT name,
+            exercise_type, 
             duration, 
             intensity
         FROM exercise_data
@@ -131,8 +138,7 @@ static async fetchUserByEmail(email) {
 
   static async fetchSleepData(id) {
     const result = await db.query(
-        `SELECT num_of_hours, 
-                start_time, 
+        `SELECT start_time, 
                 end_time
             FROM sleep_data
             WHERE user_id = $1`,

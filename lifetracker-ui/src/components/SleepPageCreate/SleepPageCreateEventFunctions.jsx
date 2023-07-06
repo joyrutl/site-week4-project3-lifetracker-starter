@@ -6,7 +6,7 @@ const SleepPageCreateEventFunctions = ({ setSleepLog }) => {
         console.log(event.target.value)
         event.preventDefault()
         let UpdatedUserinput = {}
-        UpdatedUserinput = {'starttime': event.target.value}
+        UpdatedUserinput = {'starttime': event.target.value.replace('T', ' ')}
         setSleepLog(SleepLog => ({
           ...SleepLog,
           ...UpdatedUserinput
@@ -18,7 +18,7 @@ const SleepPageCreateEventFunctions = ({ setSleepLog }) => {
         console.log(event.target.value)
         event.preventDefault()
         let UpdatedUserinput = {}
-        UpdatedUserinput = {'endtime': event.target.value}
+        UpdatedUserinput = {'endtime': event.target.value.replace('T', ' ')}
         setSleepLog(SleepLog => ({
           ...SleepLog,
           ...UpdatedUserinput
@@ -31,6 +31,7 @@ const SleepPageCreateEventFunctions = ({ setSleepLog }) => {
       const SleepFormSubmission = (event, PostUserExcercises , SleepLog) => {
         event.preventDefault();
         console.log( SleepLog)
+        console.log(SleepLog)
         PostUserExcercises(SleepLog) 
         history('/sleep')
         

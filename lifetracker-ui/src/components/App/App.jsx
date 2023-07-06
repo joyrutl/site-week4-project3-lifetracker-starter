@@ -38,10 +38,10 @@ function App() {
   // setLogin(false) and clear the local storage
 
   if (Login) {
-    useEffect(() => {GetSleepingData() }, [])
-    useEffect( () => { GetUserNutritionLogs( setNutritionLogs ) }, [])
-    console.log("Hi I am in")
-    useEffect(() => {GetUserExcercises() }, [])
+    // useEffect(() => {GetSleepingData() }, [])
+    // useEffect( () => { GetUserNutritionLogs( setNutritionLogs ) }, [])
+    // console.log("Hi I am in")
+    // useEffect(() => {GetUserExcercises() }, [])
   }
 
   return (
@@ -51,9 +51,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home  Login = {Login} />} />
           <Route path="/activity" element=  {<ActivityPage  />} />
-          <Route path="/nutrition" element={<NutritionPage PostUserNutritionLogs = { PostUserNutritionLogs } NutritionLogs = {NutritionLogs} />} />
-          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} PostUserExcercises = { PostUserExcercises } UserID = { UserID }/>} />
-          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } UserID  = { UserID }/>} />
+          <Route path="/nutrition" element={<NutritionPage PostUserNutritionLogs = { PostUserNutritionLogs } NutritionLogs = {NutritionLogs} GetUserNutritionLogs = { GetUserNutritionLogs } setNutritionLogs = {setNutritionLogs} Login = {Login} />} />
+          <Route path='/exercise' element ={<ExercisePage ExerciseLogs = {ExerciseLogs} setExcerciseLogs = {setExcerciseLogs} PostUserExcercises = { PostUserExcercises } GetUserExcercises = { GetUserExcercises } Login = {Login} UserID = { UserID } />} />
+          <Route path='/sleep' element = {<SleepPage SleepLogs=  {SleepLogs} setSleepLogs = { setSleepLogs} PostSleepingData =  { PostSleepingData } GetSleepingData = { GetSleepingData }  Login = {Login}  UserID  = { UserID }/>} />
           <Route path = '/login' element= {<LogIn Login={Login} setLogin = { setLogin } UserID = { UserID } setUserID = { setUserID } />}  />
           <Route path = '/signUp' element = {< SignUp   />} />
           <Route path = '/sleep/create' element = {< SleepPageCreate PostSleepingData = {PostSleepingData} />} />

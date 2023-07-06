@@ -5,7 +5,7 @@ const UserSleep = ({UserID}) => {
     const [SleepLogs, setSleepLogs] = useState()
     const GetSleepingData = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/sleep/sleeplogs/${userID}`);
+            const response = await axios.get(`http://localhost:3001/sleep/sleeplogs/${UserID}`);
             console.log(response.data)
             setSleepLogs(response.data)
         } catch (error) {
@@ -14,8 +14,8 @@ const UserSleep = ({UserID}) => {
     }
     const PostSleepingData = async (SleepingLog) => {
         try {
-            console.log(`Sleeping Log is: ${SleepingLog} UserID is: ${UserID}`)
-            const response = await axios.post("http://localhost:3001/sleep/sleepingData", { 'starttime' :SleepingLog.starttime, 'endtime': SleepingLog.endtime, 'UserID': UserID } );
+            console.log("Sleeping Log is:",SleepingLog ,'UserID is:', UserID)
+            const response = await axios.post("http://localhost:3001/sleep/sleepingData", { 'start_time' :SleepingLog.starttime, 'end_time': SleepingLog.endtime, 'UserID': UserID } );
             console.log(response.data)
             // SetLogInUserInfo(true)
         } catch (error) {

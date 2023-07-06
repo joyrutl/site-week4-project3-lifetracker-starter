@@ -2,10 +2,10 @@ const express = require('express')
 const User = require('../models/models')
 const router = express.Router()
 
-router.post("/sleepingData", async (request, response) => {
-    const {num_of_hours, start_time, end_time, date, user_id} = request.body
+router.post("/sleepingData", async (request, response, next) => {
+    const {start_time, end_time, UserID} = request.body
     try {
-        const sleep_info = await User.Exercise(num_of_hours, start_time, end_time, date, user_id)
+        const sleep_info = await User.Sleep(start_time, end_time, UserID)
         return response.status(200).json(sleep_info)
     } catch (error) {
         next(error)
@@ -14,10 +14,10 @@ router.post("/sleepingData", async (request, response) => {
 })
 
 router.get("/sleeplogs/:id", async (request, response, next) => {
-    const {UserID} = request.body.id
+    const UserID = request.params.id
     try{
         const sleepData = await User.fetchSleepData(UserID)
-        return response.status(200).useChunkedEncodingByDefault(sleepData)
+        return response.status(201).json(sleepData.rows)
     }catch(error) {
         next(error)
     }

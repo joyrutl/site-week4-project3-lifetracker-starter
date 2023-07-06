@@ -5,7 +5,7 @@ const UserExcercises = ({UserID}) => {
     const [ExerciseLogs, setExcerciseLogs] = useState([])
     const GetUserExcercises = async () => {
         try {
-            const response = await axios.get(`http://localhost:3001/exercise/useexercisedata/${userID}`);
+            const response = await axios.get(`http://localhost:3001/exercise/useexercisedata/${UserID}`);
             console.log(response.data)
             setExcerciseLogs(response.data)
         } catch (error) {
@@ -16,7 +16,7 @@ const UserExcercises = ({UserID}) => {
     const PostUserExcercises = async (ExcerciseLog) => {
         try {
             console.log('ExcerciseLog' ,ExcerciseLog, 'UserID' , UserID)
-            const response = await axios.post("http://localhost:3001/exercise/addexcercise", { 'name' :ExcerciseLog.name, 'calories': ExcerciseLog.calories, 'category': ExcerciseLog.category, 'quantity': ExcerciseLog.quantity, 'url': ExcerciseLog.url , 'UserID': UserID });
+            const response = await axios.post("http://localhost:3001/exercise/addexercise", { 'name' :ExcerciseLog.name, 'duration': ExcerciseLog.duration, 'intensity': ExcerciseLog.intensity, 'category': ExcerciseLog.category, 'UserID': UserID });
             console.log(response.data)
             // SetLogInUserInfo(true)
         } catch (error) {
