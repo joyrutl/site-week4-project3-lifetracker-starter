@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import "./NutritionPage.css"
+import NutritionPageCard from '../NutritionPageCard/NutritionPageCard'
 
 
 const NutritionPage = () => {
@@ -9,7 +10,15 @@ const NutritionPage = () => {
     <div className='header-wrap-nutri'>
       <h1 className='header'>Nutrition</h1>
     </div>
-      <Link  to={"/nutrition/create"}><button>Add Nutrition</button> </Link>
+    <div className='body-nutri'>
+      <Link  to={"/nutrition/create"}><button className='add-nutri'>+</button> </Link>
+      <br />
+      
+      <NutritionPageCard/>
+      <NutritionPageCard/>
+    
+    </div>
+    
     </div>
   )
 }
