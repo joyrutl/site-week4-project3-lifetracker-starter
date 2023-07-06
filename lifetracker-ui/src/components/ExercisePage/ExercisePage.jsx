@@ -1,18 +1,13 @@
 import React from 'react'
 import "./ExercisePage.css"
+import { useState } from 'react'
 
 const ExercisePage = () => {
-  return (
-  <div>
+  const [Excers] = useState()
+  return {
   
-  <div className='header-img'>
-    <h1 className='header'>Exercise</h1>
-  </div>
-  
-  
-  </div>
 
-  )
+}
 }
 
 export default ExercisePage

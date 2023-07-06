@@ -18,7 +18,7 @@ const SignUp = (props) => {
   //   }))
 
   // }
-  
+
 
   const {updateUserFirstName, updateUserLastName,  updateUserEmail, updateUsername, updateUserPassword,updateUserComfirmPassword, signUpFormSubmission } = SignUpEventFunctions({setSignUpInfo, signUpInfo})
   console.log(signUpInfo)
