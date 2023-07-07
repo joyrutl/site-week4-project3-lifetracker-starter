@@ -10,6 +10,7 @@ import ActivityPage from '../ActivityPage/ActivityPage';
 import LogIn from  '../LogIn/LogIn'
 import LogInUser from '../Api/LogInUser/LogInUser';
 import SignUp from '../SignUp/SignUp'
+import SignoutUser from '../Api/SignoutUser';
 import SignUpUser from '../Api/SignUpUser/SignUpUser'
 import Navbar from '../Navbar/Navbar';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -19,6 +20,8 @@ import UserSleep from '../Api/UserSleep/UserSleep';
 import SleepPageCreate from '../SleepPageCreate/SleepPageCreate';
 import NutritionPageCreate from '../NutritionPageCreate/NutritionPageCreate';
 import ExercisePageCreate from '../ExercisePageCreate/ExercisePageCreate';
+import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
 
 
 function App() {
@@ -28,9 +31,27 @@ function App() {
   const {ExerciseLogs, setExcerciseLogs, PostUserExcercises,  GetUserExcercises}  = UserExcercises({ UserID })
   const {SleepLogs, setSleepLogs, GetSleepingData, PostSleepingData} = UserSleep({ UserID })
   const [Login, setLogin] = useState(false)
-  
+  const handleSignOutUser = () => { 
+    SignoutUser( {setSleepLogs, setExcerciseLogs, setNutritionLogs, setLogin, setUserID })
+  }
   console.log(UserID)
   console.log(Login)
+  useEffect(() => {
+    const checkLoggedIn = () => {
+      const token = Cookies.get("token");
+      if (token) {
+        const decodedToken = jwtDecode(token);
+        if (decodedToken.exp * 1000 > Date.now()) {
+          setUserID(decodedToken.userID)
+          setLogin(true);
+        } else {
+          handleSignOutUser();
+        }
+      }
+    };
+
+    checkLoggedIn();
+  }, []);
   
   // i have handle login here
   // at the end of its job you should setLogin(true)
@@ -47,7 +68,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } Login = {Login} />
+        <Navbar setSleepLogs = {setSleepLogs} setExcerciseLogs = { setExcerciseLogs } Login = {Login} handleSignOutUser = {handleSignOutUser} />
         <Routes>
           <Route path="/" element={<Home  Login = {Login} />} />
           <Route path="/activity" element=  {<ActivityPage  />} />

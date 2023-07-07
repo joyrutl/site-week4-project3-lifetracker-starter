@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import LogIn from '../../LogIn/LogIn';
+import jwtDecode from "jwt-decode";
+import Cookies from "js-cookie";
 
 const LogInUser = ({setLogin , LoginInfo , setLoginInfo, setUserID }) => {
     console.log(setLogin)
@@ -11,6 +13,10 @@ const LogInUser = ({setLogin , LoginInfo , setLoginInfo, setUserID }) => {
     const PostCallToLogInUser = async () => {
         try {
             const response = await axios.post("http://localhost:3001/auth/login", {'email':email,  'password': password});
+            if (response.status === 200) {
+                const token = response.data.token
+                Cookies.set("token", token)
+            }
             console.log(response.data)
             let userInfo = response.data.user
             console.log(userInfo.id)

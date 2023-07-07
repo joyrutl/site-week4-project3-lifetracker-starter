@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import "./Navbar.css"
 import LogIn from '../LogIn/LogIn'
 
-const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs, Login } ) => {
-  
+const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs, Login, handleSignOutUser} ) => {
+ 
   return (
     <div className='navbar'>
         <div className="content">
@@ -30,9 +30,9 @@ const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs, Login } ) => {
             <li>
             <Link  to={"/login"}>Log in</Link>
             </li>: 
-            <li>
-              <Link to= {"/Signout"}>Signout</Link>
-            </li>
+            <button onClick = { () => handleSignOutUser() }>
+              Signout
+              </button>
 }
             {(!Login)?
             <li>
