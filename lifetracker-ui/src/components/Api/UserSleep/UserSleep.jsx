@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 const UserSleep = ({UserID}) => {
-    const [SleepLogs, setSleepLogs] = useState()
+    const [SleepLogs, setSleepLogs] = useState([])
     const GetSleepingData = async () => {
         try {
             const response = await axios.get(`http://localhost:3001/sleep/sleeplogs/${UserID}`);

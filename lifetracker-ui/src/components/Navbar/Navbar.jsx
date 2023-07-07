@@ -27,17 +27,17 @@ const Navbar = ({setNutrional, setSleepLogs, setExcerciseLogs, Login, handleSign
             <Link  to={"/sleep"}>Sleep</Link>
             </li>
             {(!Login)?
-            <li>
+            <button className='login-state'>
             <Link  to={"/login"}>Log in</Link>
-            </li>: 
-            <button onClick = { () => handleSignOutUser() }>
+            </button>: 
+            <button className='login-state' onClick = { () => handleSignOutUser() }>
               Signout
               </button>
 }
             {(!Login)?
-            <li>
+            <button className='login-state'>
             <Link  to={"/signUp"}>Register</Link>
-            </li>:
+            </button>:
             null
 }
             </ul>

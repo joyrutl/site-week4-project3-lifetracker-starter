@@ -10,3 +10,30 @@ text-align: center;
 padding-top: 90px;
 font-family: "Avenir", sans-serif;
 }
+
+.body-nutri{
+  margin-left: 15%; 
+  margin-right: 15%;
+  align-items: center;
+  padding: 10px; 
+  color: #2D4356; 
+}
+
+.add-nutri{ 
+  margin-top: 10px; 
+  margin-left: 15%; 
+  border-radius: 5px;
+  border: none; 
+  background-color: #EEEE;
+  padding: 10px 40px; 
+  font-size: 20px;
+  font-weight: bold;
+  width: 70%; 
+  color: #2D4356; 
+
+}
+
+.add-nutri:hover{
+  border: solid 2px #2D4356;
+  background-color: transparent;
+}

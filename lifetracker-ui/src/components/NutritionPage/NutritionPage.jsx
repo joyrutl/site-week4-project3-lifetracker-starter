@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import { useEffect} from 'react'
 import { useState } from 'react'
 import "./NutritionPage.css"
+import NutritionPageCard from '../NutritionPageCard/NutritionPageCard'
 
 
 const NutritionPage = ({ GetUserNutritionLogs , setNutritionLogs, NutritionLogs , Login} ) => {
@@ -15,7 +16,15 @@ const NutritionPage = ({ GetUserNutritionLogs , setNutritionLogs, NutritionLogs 
     <div className='header-wrap-nutri'>
       <h1 className='header'>Nutrition</h1>
     </div>
-      <Link  to={"/nutrition/create"}><button>Add Nutrition</button> </Link>
+    <div className='body-nutri'>
+      <Link  to={"/nutrition/create"}><button className='add-nutri'>+</button> </Link>
+      <br />
+      
+      {NutritionLogs.map((NutritionLogs, id) => (<NutritionPageCard key={id} NutritionLogs={NutritionLogs}/>))}
+
+    
+    </div>
+    
     </div>
   )
 }

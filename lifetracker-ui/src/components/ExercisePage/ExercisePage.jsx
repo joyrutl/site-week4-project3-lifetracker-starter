@@ -3,6 +3,7 @@ import "./ExercisePage.css"
 import { useState } from 'react'
 import { useEffect } from 'react'
 import {Link} from 'react-router-dom'
+import ExercisePageCard from '../ExercisePageCard/ExercisePageCard'
 
 const ExercisePage = ( {ExerciseLogs, setExcerciseLogs, Login, GetUserExcercises } ) => {
   console.log('Login condition', Login)
@@ -11,12 +12,20 @@ const ExercisePage = ( {ExerciseLogs, setExcerciseLogs, Login, GetUserExcercises
     }
   console.log('ExcerciseLogs is:', ExerciseLogs)
   return (
-  
+  <div>
   <div className='header-wrap-ex'>
       <h1 className='header'>Exercise</h1>
-  <Link  to={"/exercise/create"}><button>Add Exercise</button> </Link>
+  </div>
+
+  <div className='body-ex'>
+  <Link  to={"/exercise/create"}><button className='add-ex'>+</button> </Link>
+  <br />
+
+  {ExerciseLogs.map((ExerciseLogs, id) => (<ExercisePageCard key={id} ExerciseLogs={ExerciseLogs}/>))}
 
   </div>
+  </div>
+
 
 )
 }
