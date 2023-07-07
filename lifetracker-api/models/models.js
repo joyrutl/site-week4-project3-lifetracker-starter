@@ -50,29 +50,42 @@ static async Register(firstname, lastname, email, username, password) {
 
 
 
-static async Nutrition(calories, category, quantity, url, user_id) {
+static async Nutrition(name, calories, category, quantity, url, user_id) {
     const result = await db.query(`
-    INSERT INTO nutritional_data (calories, category, quantiity, url, user_id)
-    VALUES ($1, $2, $3, $4, $5)
+    INSERT INTO nutritional_data (name, calories, category, quantiity, url, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING *
-    `, [calories, category, quantity, url, user_id])
+    `, [name, calories, category, quantity, url, user_id])
     const nutrition_info = result.rows[0]
     return nutrition_info
 }
 
-static async Exercise(exercise_type, duration, intensity, user_id) {
+static async Exercise(name, category, duration, intensity, user_id) {
     const result = await db.query(`
-    INSERT INTO exercise_data (exercise_type, duration, intensity, user_id)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO exercise_data (name, exercise_type, duration, intensity, user_id)
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING *
-    `, [exercise_type, duration, intensity, user_id])
+    `, [name, category, duration, intensity, user_id])
     const exercise_info = result.rows[0]
     return exercise_info
 
 }
 
-static async Sleep(){
-    
+static async Sleep(start_time, end_time, user_id) {
+    const startdateObject = new Date(start_time)
+    const enddateObject = new Date(end_time)
+    const formatted_start_time = startdateObject.toISOString().slice(0, 19).replace('T', ' ');
+    const formatted_end_time = enddateObject.toISOString().slice(0, 19).replace('T', ' ');
+    console.log(formatted_end_time)
+    console.log(formatted_start_time)
+    const result = await db.query(`
+    INSERT INTO sleep_data (start_time, end_time, user_id)
+    VALUES ($1, $2, $3)
+    RETURNING *
+    `, [formatted_start_time, formatted_end_time, user_id])
+    const sleep_info = result.rows[0]
+    return sleep_info
+
 }
 
 
@@ -92,6 +105,47 @@ static async fetchUserByEmail(email) {
     const user = result.rows[0]
 
     return user
+  }
+
+  static async fetchNutritionalData(id) {
+        const result = await db.query(
+            `SELECT name,
+                    calories, 
+                    category, 
+                    quantiity, 
+                    url
+                FROM nutritional_data
+                WHERE user_id = $1`,
+                [id]
+        )
+        const nutritionalData = result;
+        return nutritionalData
+  }
+
+  static async fetchExerciseData(id) {
+    const result = await db.query(
+    `SELECT name,
+            exercise_type, 
+            duration, 
+            intensity
+        FROM exercise_data
+        WHERE user_id = $1`,
+        [id]
+    )
+    const exerciseData = result
+    return exerciseData
+  }
+
+  static async fetchSleepData(id) {
+    const result = await db.query(
+        `SELECT start_time, 
+                end_time
+            FROM sleep_data
+            WHERE user_id = $1`,
+            [id]
+    )
+    const sleepData = result
+    return sleepData
   }
 
 }

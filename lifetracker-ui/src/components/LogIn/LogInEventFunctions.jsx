@@ -1,7 +1,7 @@
-import React from 'react'
+import react from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const LogInEventFunctions = ({ LoginInfo, setLoginInfo }) => {
+const LogInEventFunctions = ({setLoginInfo }) => {
     let history = useNavigate()
     const updateUserEmail = (event)=>{
         console.log(event.target.value)
@@ -15,7 +15,7 @@ const LogInEventFunctions = ({ LoginInfo, setLoginInfo }) => {
 
         }
 
-        const updateUserPassword = (event, signUpInfo )=>{
+        const updateUserPassword = (event)=>{
         event.preventDefault()
         let UpdatedUserinput = {}
         UpdatedUserinput = {'password': event.target.value}
@@ -29,10 +29,8 @@ const LogInEventFunctions = ({ LoginInfo, setLoginInfo }) => {
         const LogInFormSubmission = (event, PostCallToLogInUser , LoginInfo ) => {
             console.log('LogInFormSubmission was called')
             event.preventDefault();
-            PostCallToLogInUser(LoginInfo) 
+            PostCallToLogInUser(LoginInfo ) 
             history("/")
-            
-            
             
           }
 

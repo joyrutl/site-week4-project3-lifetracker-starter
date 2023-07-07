@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
-const UserExcercises = () => {
+import axios from "axios"
+const UserExcercises = ({UserID}) => {
     const [ExerciseLogs, setExcerciseLogs] = useState([])
     const GetUserExcercises = async () => {
         try {
-            const response = await axios.get("http://localhost:3001/excercises");
+            const response = await axios.get(`http://localhost:3001/exercise/useexercisedata/${UserID}`);
             console.log(response.data)
             setExcerciseLogs(response.data)
         } catch (error) {
@@ -12,9 +13,10 @@ const UserExcercises = () => {
         }
     }
     
-    const PostUserExcercises = async () => {
+    const PostUserExcercises = async (ExcerciseLog) => {
         try {
-            const response = await axios.post("http://localhost:3001/excercises/addExcercises");
+            console.log('ExcerciseLog' ,ExcerciseLog, 'UserID' , UserID)
+            const response = await axios.post("http://localhost:3001/exercise/addexercise", { 'name' :ExcerciseLog.name, 'duration': ExcerciseLog.duration, 'intensity': ExcerciseLog.intensity, 'category': ExcerciseLog.category, 'UserID': UserID });
             console.log(response.data)
             // SetLogInUserInfo(true)
         } catch (error) {

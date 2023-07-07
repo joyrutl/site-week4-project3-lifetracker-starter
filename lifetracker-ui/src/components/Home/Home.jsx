@@ -2,17 +2,19 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import "./Home.css"
 
-const Home = () => {
+const Home = ( {Login} ) => {
   return (
     <div className='Home'>
       <div className='hero-img'>
         <div className='hero-title'>
           <h1>LifeTracker</h1>
           <p>Helping you take back control of your world.</p>
-          <span> 
+          { (!Login)?
+            <span> 
            <Link  to={"/signUp"}> <button> Sign Up </button> </Link> 
            <Link  to={"/login"}> <button> Log in </button></Link> 
-          </span>
+          </span>: null
+}
         </div>
       </div>
         <div className='tiles'>

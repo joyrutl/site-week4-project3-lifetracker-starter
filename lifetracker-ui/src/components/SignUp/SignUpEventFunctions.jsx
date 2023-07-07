@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
+const SignUpEventFunctions = ( {setSignUpInfo } ) => {
+
+    let history = useNavigate()
     const updateUserFirstName = (event)=>{
         console.log(event.target.value)
         event.preventDefault()
@@ -72,7 +75,7 @@ const SignUpEventFunctions = ( {setSignUpInfo, signUpInfo} ) => {
       const signUpFormSubmission = (event, PostSignUpInfo, signUpInfo ) => {
         event.preventDefault();
         PostSignUpInfo(signUpInfo) 
-        
+        history('/login')
         
         
       }

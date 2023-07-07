@@ -1,7 +1,7 @@
 .nutri-card{
     background-color: #EEEEEE;
     width: 450px; 
-    height: 240px;
+    height: 215px;
     display: inline-block;
     margin: 2%;
     border-radius: 10px;
@@ -19,6 +19,7 @@
 .nutri-img{
     left: 0;
     width: 50%;
+    padding-right: 25px;
 }
   
 .split-nutri{

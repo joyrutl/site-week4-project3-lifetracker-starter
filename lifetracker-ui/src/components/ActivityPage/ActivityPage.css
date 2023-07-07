@@ -1,0 +1,92 @@
+.activity-main{
+    display: inline-block;
+    width: 90%; 
+    margin: 2%; 
+}
+
+.activity-split{
+    display: flex; 
+    margin-left: 20%;
+    /* background-color: blue; */
+
+} 
+
+.h3{
+    left: 0; 
+    width: 50%; 
+    font-family: "Avenir", sans-serif;
+    font-size: 30px;
+    /* background-color: orange; */
+}
+
+.total-data{
+    color: white; 
+    font-family: "Avenir", sans-serif;
+    display: flex; 
+    width: 100%; 
+    justify-content: center;
+}
+
+.ex-sleep-nutri{
+    right: 0; 
+    width: 50%; 
+    /* background-color: pink; */
+}
+
+.data-card{
+    width: 20%; 
+    margin: 2%;     
+    padding: 20px; 
+    height: 300px; 
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.data-num{
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.ex-minutes{
+    background-color: #A0D8B3;
+}
+
+.hrs-sleep{
+    background-color: #9681EB;
+}
+
+.daily-cal{
+    background-color: #F24C3D; 
+}
+
+.ex-sleep-nutri button{
+    margin: 20px; 
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 4px;
+    border: solid 2px; 
+}
+
+.ex-sleep-nutri button:hover{
+    cursor: pointer;
+} 
+
+.ex-sleep-nutri .ex-btn{
+    border-color: #A0D8B3;
+    color: #A0D8B3;
+    font-weight: bold;
+}
+
+.ex-sleep-nutri .nutri-btn{
+    border-color: #F24C3D;
+    color: #F24C3D;
+    font-weight: bold;
+}
+
+.ex-sleep-nutri .sleep-btn{
+    border-color: #9681EB;
+    color: #9681EB;
+    font-weight: bold;
+}
+
