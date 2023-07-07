@@ -127,7 +127,8 @@ static async fetchUserByEmail(email) {
     `SELECT name,
             exercise_type, 
             duration, 
-            intensity
+            intensity,
+            created_at
         FROM exercise_data
         WHERE user_id = $1`,
         [id]
@@ -139,7 +140,8 @@ static async fetchUserByEmail(email) {
   static async fetchSleepData(id) {
     const result = await db.query(
         `SELECT start_time, 
-                end_time
+                end_time,
+                created_at
             FROM sleep_data
             WHERE user_id = $1`,
             [id]
