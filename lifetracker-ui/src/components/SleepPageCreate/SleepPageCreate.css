@@ -27,6 +27,10 @@ font-family: "Avenir", sans-serif;
     margin-left: -10%;
 }
 
+.add-sleep{
+    margin-left: 50px; 
+}
+
 .add-sleep input{
     margin-top: 2px; 
     margin-bottom: 20px;

@@ -1,6 +1,7 @@
 .image-bg{
     width: 100%; 
     height: 90vh;
+    /* background-image: url("https://img.freepik.com/free-photo/twilight-cloud_1203-6585.jpg"); */
     background-color:#103c44;
     /* background-image: url("https://dezerv-strapi-test.s3.ap-south-1.amazonaws.com/The_Real_Cost_of_Living_a_Healthy_Lifestyle_e2c4212e3b.jpg"); */
     background-position: center;

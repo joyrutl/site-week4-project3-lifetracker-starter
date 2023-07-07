@@ -11,6 +11,9 @@ const ActivityPage = ({ExerciseLogs, NutritionLogs, SleepLogs}) => {
   NutritionLogs.map((calories) => {
     averageDailyCalories += calories.calories
   })
+
+  averageDailyCalories /= NutritionLogs.length
+
  
   ExerciseLogs.map((exercise) => {
     totalExerciseMinutes += exercise.duration
@@ -69,7 +72,7 @@ const ActivityPage = ({ExerciseLogs, NutritionLogs, SleepLogs}) => {
 
       <div className='daily-cal data-card'>
         <p> Average Daily Calories</p>
-        <p className='data-num'>{averageDailyCalories}</p>
+        <p className='data-num'>{parseFloat(averageDailyCalories).toFixed(0)}</p>
       </div>
 
       <div className='hrs-sleep data-card'>

@@ -70,6 +70,7 @@
 
 .ex-sleep-nutri button:hover{
     cursor: pointer;
+    opacity: 0.5;
 } 
 
 .ex-sleep-nutri .ex-btn{

@@ -20,7 +20,7 @@ const NutritionPageCreate = ({ PostUserNutritionLogs  }) => {
        <input type="text" placeholder="Name" onChange = { (event) => updateNutritionName(event) } required/>
        <br/>
        
-       <select onChange={(event) => updateNutritionCategory(event)  } required defaultValue="cat-select"> 
+       <select onChange={(event) => updateNutritionCategory(event)} required defaultValue="cat-select"> 
            <option value="cat-select" disabled>Select a Category</option>
            <option value="Snack">Snack</option>
            <option value="Beverage">Beverage</option>
