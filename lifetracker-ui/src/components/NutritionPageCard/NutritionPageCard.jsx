@@ -4,7 +4,7 @@ import "./NutritionPageCard.css"
 const NutritionPageCard = ({NutritionLogs}) => {
   return (
     <div className='nutri-card'>
-        <div className='split-nutri'> 
+    <div className='split-nutri'> 
     <div className='nutri-img'>
     <img src={NutritionLogs.url} alt="" />
     </div>
